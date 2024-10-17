@@ -48,8 +48,6 @@ new Command()
   .action(({ child, max, min, adult, age, female, male, teen }) => {
     const now = new Date();
 
-    let personAge;
-
     if (age !== undefined) {
       min = age;
       max = min + 1 / 12; // 1 month
@@ -65,7 +63,7 @@ new Command()
         max = 18;
       }
     }
-    personAge = min + Math.random() * (max - min);
+    const personAge = min + Math.random() * (max - min);
 
     const birthDateString = format(subYears(now, personAge), "yyyyMMdd");
 
